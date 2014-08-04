@@ -1,3 +1,6 @@
+import model.AntSim;
+import view.MyPanel;
+
 import javax.swing.*;
 
 

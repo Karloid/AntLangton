@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,9 +66,27 @@ public class AntSim {
 
     private void move(Ant ant) {
         Position pos = getPosOnDirection(ant.getPos(), ant.getDirection());
-        if (inMap(pos)) {
+        if (inMapUnlimited(pos)) {
             ant.setPos(pos);
         }
+    }
+
+    private boolean inMapUnlimited(Position pos) {
+        if (pos.getX() < 0) {
+            pos.setX(width - 1);
+        }
+        if (pos.getX() >= width) {
+           pos.setX(0);
+        }
+
+        if (pos.getY() < 0) {
+            pos.setY(height - 1);
+        }
+        if (pos.getY() >= height) {
+            pos.setY(0);
+        }
+
+        return true;
     }
 
     private boolean inMap(Position pos) {
@@ -107,12 +127,12 @@ public class AntSim {
         ants = new ArrayList<Ant>();
         Ant firstAnt = new Ant((int) width / 2, (int) height / 2);
         ants.add(firstAnt);
-    //    addRandomAnts(1000);
+        //    addRandomAnts(1000);
     }
 
     private void addRandomAnts(int count) {
-        for (int i = 0; i < count; i ++) {
-            addAnt((int) (Math.random() * width), (int)(Math.random() * height));
+        for (int i = 0; i < count; i++) {
+            addAnt((int) (Math.random() * width), (int) (Math.random() * height));
         }
     }
 

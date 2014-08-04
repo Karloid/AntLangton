@@ -1,3 +1,4 @@
+package model;
 
 public class Ant {
     private Position pos;

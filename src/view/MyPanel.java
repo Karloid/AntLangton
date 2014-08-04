@@ -1,3 +1,9 @@
+package view;
+
+import model.Ant;
+import model.AntSim;
+import model.Observer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
